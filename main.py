@@ -10,5 +10,11 @@ def home():
         return render_template('home.html')
 
 
+# Connection page
+@app.route('/connection')
+def connection():
+        return render_template('connection.html')
+
+
 if __name__ == '__main__':
         app.run(debug=True)
