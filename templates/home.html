@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  li {
-    float: left;
-  }
+.navbar a {
+  float: left;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 13px 12px;
-    text-decoration: none;
-  }
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
 
-  li a:hover {
-    background-color: #111;
-  }
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 14px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: black;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
 </style>
 </head>
-<body>
+<body style="background-color:white;">
 
-<ul>
-  <li><a href="home">Home</a></li>
-  <li><a href="connection">Connection</a></li>
-  <li><a href="user">User</a></li>
-  <li style="float:right"><a href="#login">Login</a></li>
-</ul>
+<div class="navbar">
+  <a href="home">Home</a>
+  <div class="dropdown">
+  <button class="dropbtn" onclick="myFunction()">Interface
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+    <a href="api">API</a>
+    <a href="dai">DAI</a>
+    <a href="sdg">SDG</a>
+  </div>
+  </div> 
+  <a href="connection">Connection</a>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="myFunction1()">Admin
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown1">
+      <a href="access">Access</a>
+      <a href="db">DB Connection</a>
+    </div>
+    </div> 
+  <div style="float:right"><a href="login">Login</a></div>
+</div>
+
 <div style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 50px;
               background: linear-gradient(to left,violet,
               indigo, blue, green, yellow, orange, red);
@@ -42,6 +101,36 @@
               color: transparent; top: 80px; position: relative;">
       Welcome To SIMPAI!
   </div>
+
+<script>
+//Interface dropdown
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+    }
+  }
+
+//Admin dropdown
+function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+  }
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown1");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+    }
+  }
+  </script>
+  </body>
+  </html>
 </body>
 </html>
 
