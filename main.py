@@ -1,15 +1,14 @@
 from flask import Flask, render_template
 
-# Create a flask app
+#Create a Flask app
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 
-# Index page
+# Home page
 @app.route('/')
-def hello():
-        return "Hello Ruchi!"
+def home():
+        return render_template('home.html')
 
 
 if __name__ == '__main__':
-        # Run the Flask app
-        app.run(debug=True, port=8080)
+        app.run(debug=True)
